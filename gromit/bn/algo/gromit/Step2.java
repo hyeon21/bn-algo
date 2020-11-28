@@ -112,7 +112,7 @@ public class Step2 {
 			}
 			modifiedMin += 60;
 		}
-		
+		br.close();
 		System.out.println(modifiedHour + " " + modifiedMin);
 	}
 }
