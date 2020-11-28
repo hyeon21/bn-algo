@@ -23,6 +23,7 @@ public class Step1 {
 		System.out.println("( 0 )\"\"\"\\");
 		System.out.println("|\"^\"`    |");
 		System.out.print("||_/=\\\\__|");
+		
 	}
 
 	public void problem5() {
