@@ -9,7 +9,7 @@ import java.io.OutputStreamWriter;
 public class Step7 {
 
 	public static void main(String[] args) throws IOException {
-		grandmasPhoneNumber();
+		groupWordCount();
 	}
 
 	public static void getAscii() throws IOException {
@@ -192,22 +192,67 @@ public class Step7 {
 		System.out.println(time);
 	}
 	
+	public static void croatiaAlphabet() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String[] arrCA = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
+		String words = br.readLine();
+		br.close();
+		
+		int index;
+		int totalCount = words.length();
+		for (String ca : arrCA) {
+			index = 0;
+			while (words.indexOf(ca, index) != -1) {
+				index = words.indexOf(ca, index) + 1;
+				totalCount--;
+			};
+		}
+		
+		System.out.println(totalCount);
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public static void groupWordCount() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int tcWord = Integer.parseInt(br.readLine());
+		String word = "";
+		char curCh = ' ';
+		boolean isGroupWord = true;
+		boolean isGroupEnd = false;
+		int wordLength;
+		int groupWordCount = 0;
+		
+		for (int i = 0; i < tcWord; i++) {
+			word = br.readLine();
+			wordLength = word.length();
+			if (wordLength == 1) {
+				groupWordCount++;
+				continue;
+			}
+			isGroupWord = true;
+			for (int j = 0; j < wordLength; j++) {
+				isGroupEnd = false;
+				curCh = word.charAt(j);
+				for (int k = j+1; k < wordLength; k++) {
+					if (curCh == word.charAt(k)) {
+						if (isGroupEnd) {
+							isGroupWord = false;
+							break;
+						}
+						continue;
+					} else {
+						isGroupEnd = true;
+					}
+				}
+			}
+
+			if (isGroupWord) {
+				groupWordCount++;
+			}
+		}
+		br.close();
+		
+		System.out.println(groupWordCount);
+	}
 	
 	
 	
