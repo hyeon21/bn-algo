@@ -8,13 +8,13 @@ public class Step5 {
 	Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		problem4();
+		problem1();
 	}
 
-	public static void problem1() { //아직 미완성
+	public static void problem1() { 
 		Scanner sc = new Scanner(System.in);
-		int min = Integer.MAX_VALUE;
-		int max = Integer.MIN_VALUE;
+		int min = 0;
+		int max = 0;
 		int comp;
 		int count = Integer.parseInt(sc.nextLine());
 
@@ -23,6 +23,12 @@ public class Step5 {
 
 		for (int i = 0; i < count; i++) {
 			comp = Integer.parseInt(numbers[i]);
+			if(i == 0) {
+				min = comp;
+				max = comp;
+				continue;
+			}
+			
 			if (comp < min) {
 				min = comp;
 			} else if (comp > max) {
@@ -97,6 +103,10 @@ public class Step5 {
 	
 	public static void problem5() {
 		Scanner sc = new Scanner(System.in);
+		
+		int count = Integer.parseInt(sc.nextLine());
+		String scores = sc.nextLine();
+		String[] score = scores.split(" ");
 		
 		
 	}
