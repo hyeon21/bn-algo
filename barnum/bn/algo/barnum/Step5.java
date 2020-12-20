@@ -1,14 +1,14 @@
 package bn.algo.barnum;
 
+import java.util.Arrays;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class Step5 {
 
 	Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		problem1();
+		problem5();
 	}
 
 	public static void problem1() { 
@@ -104,9 +104,27 @@ public class Step5 {
 	public static void problem5() {
 		Scanner sc = new Scanner(System.in);
 		
-		int count = Integer.parseInt(sc.nextLine());
+		int subjectsNum = Integer.parseInt(sc.nextLine());
+		int[] score_Int = new int[subjectsNum];
+		int max_score;
+		double total_score = 0;
+		
 		String scores = sc.nextLine();
 		String[] score = scores.split(" ");
+		
+		for(int i = 0; i < subjectsNum; i++) {
+			score_Int[i] = Integer.parseInt(score[i]);
+		}
+		
+		Arrays.sort(score_Int);
+		max_score = score_Int[score_Int.length - 1];
+		
+		for(int eachScore : score_Int) {
+			total_score += (double)eachScore / max_score * 100 ;
+		}
+		
+		System.out.println(total_score / subjectsNum);
+		
 		
 		
 	}
