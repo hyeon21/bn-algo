@@ -8,6 +8,8 @@ public class Step8 {
 
 	public static void main(String[] args) throws IOException {
 		getBreakEvenPoint();
+
+		// test
 	}
 	
 	public static void getBreakEvenPoint() throws IOException {
